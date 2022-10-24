@@ -2,6 +2,8 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image"
 import { useState } from "react"
 import Currency from 'react-currency-formatter';
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../src/slices/basketSlice";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
@@ -12,6 +14,19 @@ function Product({ id, title, price, description, category, image}) {
     const [hasPrime] = useState(
         Math.random() < 0.5
     );
+    const dispatch = useDispatch();
+    const addItemToCart = () => {
+        const product = {
+            id, title, price, rating, description, category, image, hasPrime
+        
+        };
+        dispatch(addToBasket(product));
+
+
+       
+
+    }
+    console.log(addItemToCart);
   return (
     <div className="relative flex flex-col m-5 bg-white z-30 p-10">
         <p className="absolute top-2 right-2 text-xs italic text-gray-400">{category}</p>
@@ -44,7 +59,11 @@ function Product({ id, title, price, description, category, image}) {
             </div>
          )}
          {/* Margin top makes thecontainers all of the correct height */}
-         <button className="mt-auto button border border-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500">Add to Basket</button>
+         <button 
+         onClick={addItemToCart}
+         className="mt-auto button border border-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500">
+            Add to Basket
+            </button>
 
     </div>
   )

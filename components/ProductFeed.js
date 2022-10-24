@@ -4,12 +4,13 @@ import Product from "./Product"
 // using it but then wrapping it in a div wihich you may apply tailwind styles
 // confirm the mx-auto
 function ProductFeed({ products }) {
+ 
   return (
     <div className=" grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:-mt-52 mx-auto">
         
         {products
         .slice(0, 4)
-        .map(({id, title, price, description, category, image}) => (
+        .map(({id, title, price, description, category, image, hasPrime}) => (
           <Product
           key={id}
           id={id}
@@ -18,6 +19,7 @@ function ProductFeed({ products }) {
           description={description}
           category={category}
           image={image}
+          hasPrime={hasPrime}
 
            />
           

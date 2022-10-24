@@ -7,6 +7,7 @@
 
     }
     .button {
-        @apply p-2 text-sm md:text-sm bg-gradient-to-b from-yellow-200 to-yellow-400
+        @apply p-2 active:border-yellow-400
+         text-sm md:text-sm bg-gradient-to-b from-yellow-200 to-yellow-400
     }
 }
