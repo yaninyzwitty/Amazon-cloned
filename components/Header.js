@@ -8,7 +8,7 @@ import { selectItems } from '../src/slices/basketSlice';
 
 
 function Header() {
-  const {session} = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const items = useSelector(selectItems);
   

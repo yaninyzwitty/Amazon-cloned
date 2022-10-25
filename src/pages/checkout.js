@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 
 function Checkout() {
     const items = useSelector(selectItems);
-    const {session} = useSession();
+    const { data: session } = useSession()
     // console.log(items)
     const total = useSelector(selectTotal);
   return (
@@ -56,9 +56,10 @@ function Checkout() {
                     </h2>
                     <button 
                     disabled={!session}
-                    className={`button mt-2 ${!session && 'from-gray-300 to-gray-500 text-gray-200 border-gray-300 cursor-not-allowed '} `}>
+                    className={`button mt-2 focus:outline-none ${!session && 'from-gray-300 to-gray-500 text-gray-200 border-gray-500 cursor-not-allowed '} `}>
                         {!session ? 'Sign in to checkout' : 'Proceed to checkout'}
                     </button>
+                   
                 </>
             )}
         </div>

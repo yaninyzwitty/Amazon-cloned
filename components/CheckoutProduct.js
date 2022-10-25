@@ -68,7 +68,7 @@ function CheckoutProduct({ id, title, price, rating, description, category, imag
             </button>
         <button 
          onClick={removeItemFromBasket}
-         className="mt-auto button border border-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500">
+         className="mt-auto button borderborder-yellow-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 active:from-yellow-500 ">
             Remove from Basket
             </button>
       </div>
